@@ -85,10 +85,10 @@ patrol_distance = 200
 
 [node name="ColorRect2" type="ColorRect" parent="world/map" unique_id=2129260781]
 z_index = -2
-offset_left = -1649.0
-offset_top = -975.0
-offset_right = 3388.0
-offset_bottom = 2025.0
+offset_left = -1668.0
+offset_top = -984.00006
+offset_right = 3369.0
+offset_bottom = 2016.0
 scale = Vector2(1, 1.2)
 color = Color(0.87080896, 0.3114578, 0, 1)
 metadata/_edit_use_anchors_ = true
