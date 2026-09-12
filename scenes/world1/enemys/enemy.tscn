@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://duvwrdd6my8pa"]
+
+[ext_resource type="Script" uid="uid://rdcewk45ch8d" path="res://scripts/world 1/enemys/enemy.gd" id="1_7k104"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7p1mj"]
+size = Vector2(43.333332, 95)
+
+[node name="enemy" type="CharacterBody2D" unique_id=301100354 groups=["enemy"]]
+scale = Vector2(0.6, 0.6)
+collision_layer = 4
+wall_min_slide_angle = 0.0
+script = ExtResource("1_7k104")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1725399988]
+offset_left = -21.666664
+offset_top = -48.33333
+offset_right = 21.666668
+offset_bottom = 46.666664
+color = Color(0.40755898, 0.0848415, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=802854712]
+position = Vector2(-7.947286e-07, -0.833334)
+shape = SubResource("RectangleShape2D_7p1mj")
+
+[node name="floor_check" type="RayCast2D" parent="." unique_id=187410287]
+position = Vector2(21.666664, 5)

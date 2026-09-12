@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://bqi6jwcyilvpe"]
+
+[ext_resource type="PackedScene" uid="uid://c0t4s8wkhjjgs" path="res://scenes/world1/rooms/room_1.tscn" id="1_l3cfh"]
+[ext_resource type="PackedScene" uid="uid://c1unqvtx262h1" path="res://scenes/player/player.tscn" id="2_6q06x"]
+[ext_resource type="Script" uid="uid://cn5jewelsc14b" path="res://scripts/player/camera_2d.gd" id="3_ow5a4"]
+[ext_resource type="Script" uid="uid://dow5ay8jpwwqg" path="res://scripts/mangers/room_manager.gd" id="4_hujxm"]
+
+[node name="main" type="Node2D" unique_id=663890914]
+
+[node name="world" type="Node2D" parent="." unique_id=1084444800]
+
+[node name="CurrentRoom" parent="world" unique_id=64657995 instance=ExtResource("1_l3cfh")]
+
+[node name="player" type="Node2D" parent="." unique_id=727992284]
+
+[node name="player" parent="player" unique_id=1817671000 instance=ExtResource("2_6q06x")]
+z_index = 2
+position = Vector2(274, 487)
+scale = Vector2(1.8, 1.8)
+
+[node name="Camera2D" type="Camera2D" parent="player" unique_id=1043678592 node_paths=PackedStringArray("target") groups=["game_camera"]]
+position = Vector2(304, 324)
+zoom = Vector2(1.5, 1.5)
+limit_left = -489
+limit_top = -193
+limit_right = 1785
+limit_bottom = 620
+position_smoothing_enabled = true
+position_smoothing_speed = 20.0
+drag_left_margin = 0.0
+drag_top_margin = 0.0
+drag_right_margin = 0.0
+drag_bottom_margin = 0.0
+script = ExtResource("3_ow5a4")
+target = NodePath("../player")
+
+[node name="managers" type="Node2D" parent="." unique_id=1460584598]
+
+[node name="room manager" type="Node2D" parent="managers" unique_id=697846539]
+script = ExtResource("4_hujxm")

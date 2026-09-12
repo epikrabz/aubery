@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://c1unqvtx262h1"]
+
+[ext_resource type="Texture2D" uid="uid://bbgbcni6aebqw" path="res://icon.svg" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://dv7t2pqvksaf7" path="res://scripts/player.gd" id="1_onrkg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
+size = Vector2(58, 58)
+
+[sub_resource type="Animation" id="Animation_dqkch"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(19, 12)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.2217304763960306]
+}
+
+[sub_resource type="Animation" id="Animation_qhqgy"]
+resource_name = "attack"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(19, 12)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-1.2217304763960306, 4.897932]
+}
+
+[sub_resource type="Animation" id="Animation_g2els"]
+resource_name = "new_animation"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qhqgy"]
+_data = {
+&"RESET": SubResource("Animation_dqkch"),
+&"attack": SubResource("Animation_qhqgy"),
+&"new_animation": SubResource("Animation_g2els")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
+size = Vector2(9.211695, 20.03907)
+
+[node name="player" type="CharacterBody2D" unique_id=1817671000]
+collision_layer = 2
+script = ExtResource("1_onrkg")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=1106974880]
+scale = Vector2(0.4570312, 0.4570312)
+texture = ExtResource("1_4flbx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1972263804]
+shape = SubResource("RectangleShape2D_onrkg")
+
+[node name="player_anim" type="AnimationPlayer" parent="." unique_id=1841807570]
+libraries/ = SubResource("AnimationLibrary_qhqgy")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2050790238]
+offset_left = 19.0
+offset_top = 12.0
+offset_right = 58.00006
+offset_bottom = 17.999989
+rotation = -1.2217305
+
+[node name="hit area" type="Area2D" parent="ColorRect" unique_id=2134660418]
+position = Vector2(4.777929, -21.958403)
+rotation = 1.2217305
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/hit area" unique_id=627335479]
+position = Vector2(32.292282, -15.4447365)
+rotation = 0.3409139
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_g2els")

@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://ceu0226a5a25v"]
+
+[ext_resource type="Script" uid="uid://c8iopfvd6aog8" path="res://scripts/door/door.gd" id="1_hpvv5"]
+
+[node name="door" type="Area2D" unique_id=1297088490]
+collision_mask = 2
+script = ExtResource("1_hpvv5")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

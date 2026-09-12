@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://7p047t6dkgri"]
+
+[ext_resource type="Script" uid="uid://4iustbn3j3w4" path="res://scripts/world 1/enemys/ranged_enemy.gd" id="1_n6d2n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n6d2n"]
+size = Vector2(43, 95)
+
+[node name="ranged enemy" type="CharacterBody2D" unique_id=954608132 groups=["enemy"]]
+collision_layer = 4
+script = ExtResource("1_n6d2n")
+
+[node name="floor_check" type="RayCast2D" parent="." unique_id=355276721]
+position = Vector2(21, 5)
+
+[node name="atk cooldown" type="Timer" parent="." unique_id=303593102]
+wait_time = 4.0
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=127143388]
+offset_left = -21.666664
+offset_top = -48.33333
+offset_right = 21.666668
+offset_bottom = 46.666664
+color = Color(0.40755898, 0.0848415, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1764374677]
+position = Vector2(-0.49999905, -1)
+shape = SubResource("RectangleShape2D_n6d2n")
+
+[connection signal="timeout" from="atk cooldown" to="." method="_on_atk_cooldown_timeout"]

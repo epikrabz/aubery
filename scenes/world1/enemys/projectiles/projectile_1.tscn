@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://ca2gaq1gcammq"]
+
+[ext_resource type="Script" uid="uid://dmll4wg504i78" path="res://scripts/world 1/enemys/projectiles/projectile_1.gd" id="1_34ixv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_34ixv"]
+size = Vector2(21, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ycfqx"]
+size = Vector2(19, 19)
+
+[node name="projectile 1" type="CharacterBody2D" unique_id=161276723]
+z_index = 2
+collision_layer = 4
+script = ExtResource("1_34ixv")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1960409432]
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 11.0
+offset_bottom = 11.0
+color = Color(1.92523e-06, 0.77436405, 0.2499752, 1)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=98879751]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1344356747]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_34ixv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1711707928]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_ycfqx")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
