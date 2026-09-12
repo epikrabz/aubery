@@ -21,10 +21,10 @@ scale = Vector2(1.8, 1.8)
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=1043678592 node_paths=PackedStringArray("target") groups=["game_camera"]]
 position = Vector2(304, 324)
 zoom = Vector2(1.5, 1.5)
-limit_left = -489
-limit_top = -193
+limit_left = -605
+limit_top = -298
 limit_right = 1785
-limit_bottom = 620
+limit_bottom = 625
 position_smoothing_enabled = true
 position_smoothing_speed = 20.0
 drag_left_margin = 0.0
