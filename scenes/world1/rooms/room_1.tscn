@@ -62,7 +62,7 @@ texture = ExtResource("4_d0u7m")
 sources/0 = SubResource("TileSetAtlasSource_eppc7")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tefeu"]
-size = Vector2(128, 100)
+size = Vector2(112, 100)
 
 [node name="room1" type="Node2D" unique_id=64657995]
 
@@ -110,7 +110,7 @@ target_room = "res://scenes/world1/rooms/room_2.tscn"
 spawn_name = "top"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="world/map/door" unique_id=1505616879]
-position = Vector2(25, -40)
+position = Vector2(21, -40)
 shape = SubResource("RectangleShape2D_tefeu")
 
 [node name="markers" type="Node2D" parent="." unique_id=89105284]
