@@ -54,10 +54,7 @@ func _physics_process(delta: float) -> void:
 			SPEED = 85
 			var chase_dir = sign(diff.x)
 			flip_raycast(chase_dir)
-			if floor_check.is_colliding():
-				velocity.x = chase_dir * SPEED
-			else:
-				velocity.x = 0
+			velocity.x = chase_dir * SPEED
 
 		State.ATTACK:
 			velocity.x = 0

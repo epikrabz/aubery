@@ -1,11 +1,11 @@
 extends CharacterBody2D
 
 @onready var hit_area: Area2D = $"png/hit area"
-
 @onready var png: Node2D = $png
 
 var is_flying = false
 var health = 100
+var look_dir = 1
 
 const SPEED = 300.0
 
@@ -25,15 +25,15 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		velocity.x = direction * SPEED
 		if direction > 0:
-			png.scale.x = 1
+			look_dir = 1
 		else:
-			png.scale.x = -1
+			look_dir = -1
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	if is_flying:
-		if velocity.y > -170:
-			velocity.y -= 30
+		if velocity.y > -200:
+			velocity.y -= 1000 * delta
 		else:
 			velocity.y = -200
 
@@ -42,6 +42,8 @@ func _physics_process(delta: float) -> void:
 		rotation = move_toward(rotation, 0, 0.058)
 
 	move_and_slide()
+
+	png.scale.x = look_dir
 
 	if health <= 0:
 		get_tree().reload_current_scene()
